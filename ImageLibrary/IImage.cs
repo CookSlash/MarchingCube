@@ -6,7 +6,7 @@ namespace Image
 	public interface IImage
 	{
 		
-		int GetValueAt(int x, int y);
+		int GetPixelValueAt(int x, int y);
 		int Length{ get;}
 		int Height{ get;}
 

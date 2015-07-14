@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 namespace Image
 {
 	public class ImageImpl : IImage
@@ -9,7 +10,13 @@ namespace Image
 		{
 		}
 
-		public int GetValueAt(int x, int y)
+		public ImageImpl(string imgPath)
+		{
+			//var bmp = new Bitmap (imgPath);
+			//TODO find appropriate library to read Inmg from file
+		}
+
+		public int GetPixelValueAt(int x, int y)
 		{
 			if (x > Length || y > Height || x < 0 || y < 0) 
 			{
