@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarchingCube", "MarchingCube\MarchingCube.csproj", "{F7732749-D79F-473B-8A50-E88213625920}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageInterfaces", "ImageLibrary\ImageInterfaces.csproj", "{77DBAE82-F192-44E8-8576-2D165F278E84}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreInterface", "ImageLibrary\CoreInterface.csproj", "{77DBAE82-F192-44E8-8576-2D165F278E84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Image", "Image\Image.csproj", "{433F766D-F2CB-4F15-98F8-B06C33B35FAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Image\Core.csproj", "{433F766D-F2CB-4F15-98F8-B06C33B35FAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageTest", "ImageTest\ImageTest.csproj", "{21FBC428-556E-4C07-9E79-E2A439CD1E09}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreTest", "ImageTest\CoreTest.csproj", "{21FBC428-556E-4C07-9E79-E2A439CD1E09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
