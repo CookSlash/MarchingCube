@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Image;
+using ImageLibrary;
 
 namespace ImageTest
 {

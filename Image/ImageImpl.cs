@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-namespace Image
+namespace ImageLibrary
 {
 	public class ImageImpl : IImage
 	{

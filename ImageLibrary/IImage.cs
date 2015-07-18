@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Image
+namespace ImageLibrary
 {
 	//Interface for a 2D image with integer values
 	public interface IImage
