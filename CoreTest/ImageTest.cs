@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Core;
+using Moq;
 using NUnit.Framework;
 
 namespace CoreTest
@@ -14,15 +16,34 @@ namespace CoreTest
 		public void Setup()
 		{
 			
-			_img = new ImageImpl ();
-			_img._data = new ReadOnlyCollection<int>
-				(new List<int> { 0,0,0,0,
-								 1,1,1,0,
-								 0,1,1,0,
-								 0,0,0,0
-					});
-			_img.Height = 4;
-			_img.Length = 4;
+			
+            Mock<IImageReader> imageReaderMock = new Mock<IImageReader>();
+		    imageReaderMock.Setup(x => x.Width(It.IsAny<string>())).Returns(4);
+		    imageReaderMock.Setup(x => x.Heigth(It.IsAny<string>())).Returns(4);
+		    imageReaderMock.Setup(x => x.GetBitmapFromFile(It.IsAny<string>())).Returns(new ReadOnlyCollection<int>
+		        (new List<int>
+		        {
+		            0,
+		            0,
+		            0,
+		            0,
+		            1,
+		            1,
+		            1,
+		            0,
+		            0,
+		            1,
+		            1,
+		            0,
+		            0,
+		            0,
+		            0,
+		            0
+		        }));
+			
+
+            _img = new ImageImpl("DumbPath",imageReaderMock.Object);
+            
 
 		}
 
@@ -31,16 +52,23 @@ namespace CoreTest
 		[TestCase (0,1, ExpectedResult = 1)]
 		[TestCase (1,0, ExpectedResult = 0)]
 		[TestCase (1,0, ExpectedResult = 0)]
-		/*[TestCase (-1,0,  Assert.Throws = typeof(ArgumentOutOfRangeException))]
-		[TestCase (1,-1,  Assert.Throws = typeof(ArgumentOutOfRangeException))]
-		[TestCase (9,0,  Assert.Throws = typeof(ArgumentOutOfRangeException))]
-		[TestCase (3,10,  Assert.Throws = typeof(ArgumentOutOfRangeException))]*/
-		public int GetPixelValueatTest(int x, int y)
+		
+		public int GetPixelValueAtShouldReturnExpectedResult(int x, int y)
 		{
-			return _img.GetPixelValueAt (x, y);
-
+			return   _img.GetPixelValueAt (x, y);
+            
 		}
 
-	}
+        [TestCase (-1,0)]
+		[TestCase (1,-1)]
+		[TestCase (9,0)]
+		[TestCase (3,10)]
+        public void GetPixelValueAtShouldThrowsArgumentOutOfRangeException(int x, int y)
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(()=> _img.GetPixelValueAt(x, y)) ;
+
+        }
+
+    }
 }
 

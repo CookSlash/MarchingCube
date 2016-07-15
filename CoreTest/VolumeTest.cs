@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Core;
 using Core.interfaces;
+using Moq;
 using NUnit.Framework;
 
 namespace CoreTest
@@ -14,57 +15,59 @@ namespace CoreTest
 		[SetUp]
 		public void Setup ()
 		{
-			var img0 = new ImageImpl ();
-			img0._data = new ReadOnlyCollection<int>
-				(new List<int> { 
+            Mock<IImageReader> imageReaderMock = new Mock<IImageReader>();
+            imageReaderMock.Setup(x => x.Width("img0")).Returns(4);
+            imageReaderMock.Setup(x => x.Heigth("img0")).Returns(4);
+            imageReaderMock.Setup(x => x.GetBitmapFromFile("img0")).Returns(new ReadOnlyCollection<int>
+                (new List<int> { 
 					0,0,0,0,
 					0,0,0,0,
 					0,0,0,0,
 					0,0,0,0
-				});
-			img0.Height = 4;
-			img0.Length = 4;
+				}));
 
-			var img1 = new ImageImpl ();
-			img1._data = new ReadOnlyCollection<int>
-				(new List<int> { 
+
+          
+            imageReaderMock.Setup(x => x.Width("img1")).Returns(4);
+            imageReaderMock.Setup(x => x.Heigth("img1")).Returns(4);
+            imageReaderMock.Setup(x => x.GetBitmapFromFile("img1")).Returns(new ReadOnlyCollection<int>
+                (new List<int> { 
 					0,0,0,0,
 					0,1,1,0,
 					0,1,1,0,
 					0,0,0,0
-				});
-			img1.Height = 4;
-			img1.Length = 4;
+				}));
 
-			var img2 = new ImageImpl ();
-			img2._data = new ReadOnlyCollection<int>
-				(new List<int> { 
+
+            
+            imageReaderMock.Setup(x => x.Width("img2")).Returns(4);
+            imageReaderMock.Setup(x => x.Heigth("img2")).Returns(4);
+            imageReaderMock.Setup(x => x.GetBitmapFromFile("img2")).Returns(new ReadOnlyCollection<int>
+                (new List<int> { 
 					0,0,0,0,
 					0,1,1,0,
 					0,1,1,0,
 					0,0,0,0
-				});
-			img2.Height = 4;
-			img2.Length = 4;
+				}));
 
-			var img3 = new ImageImpl ();
-			img3._data = new ReadOnlyCollection<int>
-				(new List<int> { 
+
+           
+            imageReaderMock.Setup(x => x.Width("img3")).Returns(4);
+            imageReaderMock.Setup(x => x.Heigth("img3")).Returns(4);
+            imageReaderMock.Setup(x => x.GetBitmapFromFile("img3")).Returns(new ReadOnlyCollection<int>
+                (new List<int> { 
 					0,0,0,0,
 					1,0,0,0,
 					0,0,0,0,
 					0,0,0,0
-				});
-			img3.Height = 4;
-			img3.Length = 4;
+				}));
 
-			_vol = new VolumeImpl ();
-			((VolumeImpl)_vol)._data= new ReadOnlyCollection<IImage>
-				(new List<IImage> {img0,img1,img2,img3});
+		    imageReaderMock.Setup(x => x.GetImageListInDir("dummyDir")).Returns(new []{"img0","img1","img2","img3"});
 
-			_vol.Depth = 4;
-			_vol.Height = 4;
-			_vol.Length = 4;
+
+
+            _vol = new VolumeImpl ("dummyDir",imageReaderMock.Object);
+			
 		}
 
 

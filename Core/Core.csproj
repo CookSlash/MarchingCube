@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IImageReader.cs" />
     <Compile Include="interfaces\IImage.cs" />
     <Compile Include="ImageImpl.cs" />
     <Compile Include="interfaces\IVolume.cs" />

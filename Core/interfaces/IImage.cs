@@ -5,7 +5,7 @@
 	{
 		
 		int GetPixelValueAt(int x, int y);
-		int Length{ get;}
+		int Width{ get;}
 		int Height{ get;}
 
 	}
