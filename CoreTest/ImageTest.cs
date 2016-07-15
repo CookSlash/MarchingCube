@@ -1,10 +1,9 @@
-﻿using System;
-using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using ImageLibrary;
+using Core;
+using NUnit.Framework;
 
-namespace ImageTest
+namespace CoreTest
 {
 	[TestFixture]
 	public class ImageTest

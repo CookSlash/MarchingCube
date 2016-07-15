@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ImageLibrary
+﻿namespace Core.interfaces
 {
 	public interface IVolume
 	{

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ImageLibrary
+﻿namespace Core.interfaces
 {
 	//Interface for a 2D image with integer values
 	public interface IImage

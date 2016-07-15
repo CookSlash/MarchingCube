@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-namespace ImageLibrary
+using Core.interfaces;
+
+namespace Core
 {
 	public class VolumeImpl:IVolume
 	{
