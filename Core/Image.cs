@@ -4,12 +4,12 @@ using Core.interfaces;
 
 namespace Core
 {
-	public class ImageImpl : IImage
+	public class Image : IImage
 	{
-		internal IList<int> _data;
+		private readonly IList<int> _data;
 		
 
-		public ImageImpl(string imgPath, IImageReader imageReader)
+		public Image(string imgPath, IImageReader imageReader)
 		{
 
 		    _data = imageReader.GetBitmapFromFile(imgPath);

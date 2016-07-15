@@ -4,18 +4,18 @@ using Core.interfaces;
 
 namespace Core
 {
-	public class VolumeImpl:IVolume
+	public class Volume:IVolume
 	{
 		internal IList<IImage> _data= new List<IImage>();
-		internal VolumeImpl (string dir, IImageReader imgReader)
+		internal Volume (string dir, IImageReader imgReader)
 		{
             //TODO: remove coupling with IImage
             //TODO: throw exception for different sizes img in list
             var imgList = imgReader.GetImageListInDir(dir);
 		    foreach (var imgPath in imgList)
 		    {
-               _data.Add(new ImageImpl(imgPath,imgReader));
-		        Length = imgReader.Width(imgPath);
+               _data.Add(new Image(imgPath,imgReader));
+		        Width = imgReader.Width(imgPath);
 		        Height = imgReader.Heigth(imgPath);
 		    }
 		    Depth = imgList.Count;
@@ -25,14 +25,14 @@ namespace Core
 
 		public int GetVoxelValueAt (int x, int y, int z)
 		{
-			if (x > Length || y > Height || z> Depth || x < 0 || y < 0 || z< 0) 
+			if (x > Width || y > Height || z> Depth || x < 0 || y < 0 || z< 0) 
 			{
 				throw new ArgumentOutOfRangeException ("the requested coordinate does not exists for this Volume.");
 			}
 			return _data [z].GetPixelValueAt (x, y);
 		}
 
-		public int Length {
+		public int Width {
 			get ;
 			internal set;
 		}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Core;
+using Core.interfaces;
 using Moq;
 using NUnit.Framework;
 
@@ -10,7 +11,7 @@ namespace CoreTest
 	[TestFixture]
 	public class ImageTest
 	{
-		private ImageImpl _img;
+		private Image _img;
 
 		[SetUp]
 		public void Setup()
@@ -42,7 +43,7 @@ namespace CoreTest
 		        }));
 			
 
-            _img = new ImageImpl("DumbPath",imageReaderMock.Object);
+            _img = new Image("DumbPath",imageReaderMock.Object);
             
 
 		}

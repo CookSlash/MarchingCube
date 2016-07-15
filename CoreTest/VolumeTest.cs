@@ -11,7 +11,7 @@ namespace CoreTest
 	[TestFixture]
 	public class VolumeTest
 	{
-		private VolumeImpl _vol;
+		private Volume _vol;
 		[SetUp]
 		public void Setup ()
 		{
@@ -66,7 +66,7 @@ namespace CoreTest
 
 
 
-            _vol = new VolumeImpl ("dummyDir",imageReaderMock.Object);
+            _vol = new Volume ("dummyDir",imageReaderMock.Object);
 			
 		}
 
