@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using Core.interfaces;
-
-namespace Core.interfaces
+﻿namespace Core.interfaces
 {
     public interface ITriangle
     {

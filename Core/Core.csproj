@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="interfaces\I3DPoint.cs" />
     <Compile Include="interfaces\IImageReader.cs" />
     <Compile Include="interfaces\IImage.cs" />
     <Compile Include="Image.cs" />
